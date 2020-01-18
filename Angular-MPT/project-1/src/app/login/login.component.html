@@ -1,0 +1,38 @@
+<div class="col-md-4 offset-md-4">
+    <form #loginForm='ngForm' (ngSubmit)='login(loginForm)'>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="username" name="username" id="username" minlength="8" required #username='ngModel' ngModel
+                class="form-control" username>
+            <div *ngIf='username.touched && username.invalid'>
+                <div class="alert alert-danger" *ngIf='username.errors.required'>
+                    this field is mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='username.errors.minlength'>
+                    Minimum 8 characters are required
+                </div>
+                <div class="alert alert-danger" *ngIf='username.errors.email'>
+                    this field only accepts username
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" #password='ngModel' ngModel class="form-control"
+                 required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
+            <div *ngIf='password.invalid && password.touched'>
+                <div class="alert alert-danger" *ngIf='password.errors.required'>
+                    this field is mandatory.
+                </div>
+                    <div class="alert alert-danger" *ngIf='password.errors.pattern'>
+                    Minimum eight characters, at least one letter and one number:
+                </div> 
+            </div>
+        </div>
+       
+
+        <button type="submit" class="btn btn-primary float-right" >
+            Login
+        </button>
+    </form>
+</div>
