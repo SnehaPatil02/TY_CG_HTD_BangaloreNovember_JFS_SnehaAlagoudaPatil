@@ -1,0 +1,34 @@
+
+<div class="alert alert-success" *ngIf='success'>{{success}}</div>
+<div class="alert alert-danger" *ngIf='failure'>{{failure}}</div>
+<div class="card">
+    <div class="card-body">
+        <div class="col-md-4 offset-md-4 mt-4">
+            <h4>Add Posts</h4>
+            <form #addedPosts='ngForm' (ngSubmit)='addPost(addedPosts)'>
+                <div class="form-group">
+                    <label for="userId">user Id</label>
+                    <input type="text" name="userId" id="userId"
+                    #userId='ngModel' ngModel class="form-control" required placeholder="Enter your userId">
+                </div>
+
+                <div class="form-group">
+                    <label for="id">Id</label>
+                    <input type="text" name="id" id="id"
+                    #id='ngModel' ngModel class="form-control" required placeholder="Enter your id">
+                </div>
+
+                <div class="form-group">
+                    <label for="title">title</label>
+                    <input type="text" name="title" id="title"
+                    #title='ngModel' ngModel class="form-control" required placeholder="Enter title">
+                </div>
+
+                <button type="submit" class="btn btn-outline-primary float-right">
+                    Add
+                </button>
+
+            </form>
+        </div>
+    </div>
+</div>
